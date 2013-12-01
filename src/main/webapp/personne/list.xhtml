@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+        <p:commandLink value="Ajouter un nouvel enregistrement" action="#{personneController.showCreate}" />
+        <p:dataTable value="#{personneController.getAll}" var="item">
+            <p:column headerText="CIN">
+                <p:commandLink value="#{item.cin}" action="#{personneController.showView(item)}" />
+            </p:column>
+            <p:column headerText="SOM">
+                <p:outputLabel value="#{item.som}" />
+            </p:column>
+            <p:column headerText="CIN">
+                <p:outputLabel value="#{item.dateRecrutement}" />
+            </p:column>
+            <p:column headerText="CIN">
+                <p:outputLabel value="#{item.nom}" />
+            </p:column>
+            <p:column headerText="CIN">
+                <p:outputLabel value="#{item.prenom1}" />
+            </p:column>
+            <p:column headerText="CIN">
+                <p:outputLabel value="#{item.nomAr}" />
+            </p:column>
+            <p:column headerText="CIN">
+                <p:outputLabel value="#{item.prenomAr}" />
+            </p:column>
+            <p:column headerText="Photo">
+                <p:outputLabel value="#{item.photo}" />
+            </p:column>
+        </p:dataTable>
+        </h:form>
+</h:body>
+</html>

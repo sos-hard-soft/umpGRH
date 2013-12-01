@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+    <p:panelGrid columns="3">
+        <p:outputLabel value="SOM" />
+        <p:inputText id="som" value="#{personneController.nouveau.som}" required="true"/>
+        <p:message for="som" />
+        <p:outputLabel value="Poste Budgetaire" />
+        <p:inputText id="posteBudgetaire" value="#{personneController.nouveau.posteBudgetaire}" required="true"/>
+        <p:message for="posteBudgetaire" />
+        
+        <p:outputLabel value="Date Recrutement" />
+        <p:calendar id="dateRecrutement" value="#{personneController.nouveau.dateRecrutement}" required="true"/>
+        <p:message for="dateRecrutement" />
+        
+        <p:outputLabel value="CIN" />
+        <p:inputText id="cin" value="#{personneController.nouveau.cin}" required="true"/>
+        <p:message for="cin" />
+        
+        <p:outputLabel value="Nom :" />
+        <p:inputText id="nom" value="#{personneController.nouveau.nom}" required="true"/>
+        <p:message for="nom" />
+        
+        <p:outputLabel value="Prénom :" />
+        <p:inputText id="prenom1" value="#{personneController.nouveau.prenom1}" required="true"/>
+        <p:message for="prenom1" />
+        
+        <p:outputLabel value="Deuxième prénom :" />
+        <p:inputText id="prenom2" value="#{personneController.nouveau.prenom2}" required="true"/>
+        <p:message for="prenom2" />
+        
+        <p:outputLabel value="Nom en arabe :" />
+        <p:inputText id="nomAr" value="#{personneController.nouveau.nomAr}" required="true"/>
+        <p:message for="nomAr" />
+        
+        <p:outputLabel value="Prénom en arabe :" />
+        <p:inputText id="prenomAr" value="#{personneController.nouveau.prenomAr}" required="true"/>
+        <p:message for="prenomAr" />
+        
+        <p:outputLabel value="Date de naissance :" />
+        <p:calendar id="dateNaissance" value="#{personneController.nouveau.dateNaissance}" required="true"/>
+        <p:message for="dateNaissance" />
+        
+        <p:outputLabel value="Lieu de naissance :" />
+        <p:inputText id="lieuNaissance" value="#{personneController.nouveau.lieuNaissance}" required="true"/>
+        <p:message for="lieuNaissance" />
+        
+        <p:outputLabel value="Adresse :" />
+        <p:inputTextarea id="adresse" value="#{personneController.nouveau.adresse}" required="true"/>
+        <p:message for="adresse" />
+        
+        <p:outputLabel value="Téléphonne :" />
+        <p:inputText id="telephonne" value="#{personneController.nouveau.telephonne}" required="true"/>
+        <p:message for="telephonne" />
+        
+        <p:outputLabel value="Etat matrimonial :" />
+        <p:inputText id="etatMatrimonial" value="#{personneController.nouveau.etatMatrimonial}" />
+        <p:message for="etatMatrimonial" />
+        
+        <p:outputLabel value="Nombre d'enfant :" />
+        <p:inputText id="nbEnfants" value="#{personneController.nouveau.nbEnfants}" />
+        <p:message for="nbEnfants" />
+    </p:panelGrid>
+        <h:commandButton value="Enregistrer" action="#{personneController.doCreate}" />
+        </h:form>
+</h:body>
+</html>

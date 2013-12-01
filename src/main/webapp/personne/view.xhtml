@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:p="http://primefaces.org/ui"
+xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+</h:head>
+<h:body>
+    <h:form>
+        <h:commandLink value="Retour a la list" action="#{personneController.showList}" />
+    <p:panelGrid columns="3">
+        <p:outputLabel value="SOM" />
+        <p:outputLabel id="som" value="#{personneController.nouveau.som}" />
+        <p:message for="som" />
+        <p:outputLabel value="Poste Budgetaire" />
+        <p:outputLabel id="posteBudgetaire" value="#{personneController.nouveau.posteBudgetaire}" />
+        
+        
+        <p:outputLabel value="Date Recrutement" />
+        <p:outputLabel id="dateRecrutement" value="#{personneController.nouveau.dateRecrutement}" />
+        
+        
+        <p:outputLabel value="CIN" />
+        <p:outputLabel id="cin" value="#{personneController.nouveau.cin}" />
+        
+         <p:outputLabel value="Nom :" />
+        <p:outputLabel id="nom" value="#{personneController.nouveau.nom}" />
+        
+        <p:outputLabel value="Prénom :" />
+        <p:outputLabel id="prenom1" value="#{personneController.nouveau.prenom1}" />
+        
+        <p:outputLabel value="Deuxième prénom :" />
+        <p:outputLabel id="prenom2" value="#{personneController.nouveau.prenom2}" />
+        
+        <p:outputLabel value="Nom en arabe :" />
+        <p:outputLabel id="nomAr" value="#{personneController.nouveau.nomAr}" />
+        
+        <p:outputLabel value="Prénom en arabe :" />
+        <p:outputLabel id="prenomAr" value="#{personneController.nouveau.prenomAr}" />
+       
+        <p:outputLabel value="Date de naissance :" />
+        <p:outputLabel id="dateNaissance" value="#{personneController.nouveau.dateNaissance}" />
+        
+        <p:outputLabel value="Lieu de naissance :" />
+        <p:outputLabel id="lieuNaissance" value="#{personneController.nouveau.lieuNaissance}" />
+        
+        <p:outputLabel value="Adresse :" />
+        <p:outputLabel id="adresse" value="#{personneController.nouveau.adresse}" />
+        
+        <p:outputLabel value="Téléphonne :" />
+        <p:outputLabel id="telephonne" value="#{personneController.nouveau.telephonne}" />
+        
+        <p:outputLabel value="Etat matrimonial :" />
+        <p:outputLabel id="etatMatrimonial" value="#{personneController.nouveau.etatMatrimonial}" />
+        
+        <p:outputLabel value="Nombre d'enfant :" />
+        <p:outputLabel id="nbEnfants" value="#{personneController.nouveau.nbEnfants}" />
+        
+    </p:panelGrid>
+        
+        </h:form>
+</h:body>
+</html>
