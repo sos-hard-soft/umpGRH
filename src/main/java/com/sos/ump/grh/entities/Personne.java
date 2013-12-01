@@ -85,8 +85,7 @@ public class Personne implements Serializable {
     @Size(min = 1, max = 255)
     @Column(name = "prenom1")
     private String prenom1;
-    @Size(min = 1, max = 255)
-    @Column(name = "prenom2")
+    @Column(name = "prenom2", nullable = true)
     private String prenom2;
     @Size(max = 255)
     @Column(name = "nom_ar", nullable = true)
@@ -133,6 +132,13 @@ public class Personne implements Serializable {
         this.dateRecrutement = dateRecrutement;
     }
 
+    public Personne(Integer som, String nom, String prenom1) {
+        this.som = som;
+        this.nom = nom;
+        this.prenom1 = prenom1;
+    }
+    
+    
     
     public void addSituation(Situation situation){
         situation.setPersonne(this);

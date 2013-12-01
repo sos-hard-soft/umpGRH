@@ -68,7 +68,26 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
-        
+        <dependency>  
+    <groupId>org.primefaces.themes</groupId>  
+    <artifactId>all-themes</artifactId>  
+    <version>1.0.10</version>  
+</dependency> 
+<dependency>
+            <groupId>fr.opensagres.xdocreport</groupId>
+            <artifactId>fr.opensagres.xdocreport.document.odt</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.opensagres.xdocreport</groupId>
+            <artifactId>fr.opensagres.xdocreport.template.freemarker</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>fr.opensagres.xdocreport</groupId>
+            <artifactId>fr.opensagres.xdocreport.template.velocity</artifactId>
+            <version>1.0.3</version>
+        </dependency>
     </dependencies>
 
     <build>

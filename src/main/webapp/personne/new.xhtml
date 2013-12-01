@@ -6,6 +6,10 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 </h:head>
 <h:body>
+    <h:form enctype="multipart/form-data">
+        <p:fileUpload fileUploadListener="#{personneController.handleFileUpload}" />
+                <p:growl id="messages" showDetail="true"/>
+    </h:form>
     <h:form>
     <p:panelGrid columns="3">
         <p:outputLabel value="SOM" />
@@ -32,7 +36,7 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
         <p:message for="prenom1" />
         
         <p:outputLabel value="Deuxième prénom :" />
-        <p:inputText id="prenom2" value="#{personneController.nouveau.prenom2}" required="true"/>
+        <p:inputText id="prenom2" value="#{personneController.nouveau.prenom2}"/>
         <p:message for="prenom2" />
         
         <p:outputLabel value="Nom en arabe :" />
@@ -66,8 +70,11 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
         <p:outputLabel value="Nombre d'enfant :" />
         <p:inputText id="nbEnfants" value="#{personneController.nouveau.nbEnfants}" />
         <p:message for="nbEnfants" />
+        
     </p:panelGrid>
         <h:commandButton value="Enregistrer" action="#{personneController.doCreate}" />
         </h:form>
+    
+    
 </h:body>
 </html>

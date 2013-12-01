@@ -8,7 +8,7 @@ xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <h:body>
     <h:form>
         <p:commandLink value="Ajouter un nouvel enregistrement" action="#{personneController.showCreate}" />
-        <p:dataTable value="#{personneController.getAll}" var="item">
+        <p:dataTable value="#{personneController.all}" var="item">
             <p:column headerText="CIN">
                 <p:commandLink value="#{item.cin}" action="#{personneController.showView(item)}" />
             </p:column>
