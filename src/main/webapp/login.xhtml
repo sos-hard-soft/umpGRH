@@ -17,19 +17,28 @@
 
             
     <h2>Login</h2>
-    <form method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" />
-        <br/>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" />
-        <br/>
-        <label for="rememberMe">Remember me:</label>
-        <input type="checkbox" id="rememberMe" name="rememberMe" value="true" />
-        <br/>
-        <input type="submit" value="Login" />
-        <span class="error">#{shiroLoginFailure}</span>
-    </form>
+    <h:form id="login">
+        <h:panelGrid columns="3">
+            <h:outputLabel for="username" value="Username:" />
+            <h:inputText id="username" required="true" />
+            <h:message for="username" />
+
+            <h:outputLabel for="password" value="Password" />
+            <h:inputSecret id="password" required="true" />
+            <h:message for="password" />
+
+            <h:outputLabel for="rememberMe" value="Remember Me" />
+            <h:selectBooleanCheckbox id="rememberMe" />
+            <h:panelGroup />
+
+            <h:panelGroup />
+            <h:commandButton value="Login" />
+            <h:panelGroup styleClass="error" rendered="#{not facesContext.validationFailed}">
+                #{shiroLoginFailure}
+            </h:panelGroup>
+        </h:panelGrid>
+    </h:form>
+
 
 
 
