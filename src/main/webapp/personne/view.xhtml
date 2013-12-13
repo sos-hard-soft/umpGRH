@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>	
+<h:body>
+        <h:form>
+        <p:panelGrid columns="4">
+            <p:commandLink target="new" value="Attestation" action="#{personneController.showAttestation}"  />
+            <p:commandLink value="Nouvelle Qualification" action="#{personneController.showAddQualification}"  />
+            <p:commandLink value="Nouvelle Affectation" action="#{personneController.showAddAffectation}"  />
+            <p:commandLink value="Nouvelle Situation" action="#{personneController.showAddSituation}"  />
+        </p:panelGrid>
+        <p:panelGrid columns="2">
+            <p:outputLabel value="CIN :" />
+            <p:outputLabel id="cin" value="#{personneController.courrant.cin}" />
+            
+            
+            <p:outputLabel value="Nom :" />
+            <p:outputLabel id="nom" value="#{personneController.courrant.nom}" />
+           
+            
+            <p:outputLabel value="Prenom :" />
+            <p:outputLabel id="prenom" value="#{personneController.courrant.prenom1}" />
+           
+            
+            <p:outputLabel value="Prenom 2:" />
+            <p:outputLabel id="prenom2" value="#{personneController.courrant.prenom2}" />
+            
+            
+            <p:outputLabel value="Nom arabe :" />
+            <p:outputLabel id="nomAr" value="#{personneController.courrant.nomAr}" />
+           
+            
+            <p:outputLabel value="Prenom arabe :" />
+            <p:outputLabel id="prenomAr" value="#{personneController.courrant.prenomAr}" />
+           
+            
+            <p:outputLabel value="Date de Recrutement :" />
+            <p:outputLabel id="dateRecrutement" value="#{personneController.courrant.dateRecrutement}" />
+           
+            
+            <p:outputLabel value="Date de naissance :" />
+            <p:outputLabel id="dateNaissance" value="#{personneController.courrant.dateNaissance}" />
+            
+            <p:outputLabel value="SOM :" />
+            <p:outputLabel id="som" value="#{personneController.courrant.som}" />
+            
+            
+            <p:outputLabel value="Lieu de naissance :" />
+            <p:outputLabel id="lieuNaissance" value="#{personneController.courrant.lieuNaissance}" />
+            
+            
+            <p:outputLabel value="Adresse :" />
+            <p:outputLabel id="adresse" value="#{personneController.courrant.adresse}" />
+            
+            <p:outputLabel value="photo :"/>
+            <p:graphicImage height="120" width="120" value="#{personneController.byteToImage(personneController.courrant.photo)}" />
+            
+        </p:panelGrid>   
+        
+    </h:form>
+    
+    <p:panelGrid columns="2">
+        <p:dataTable value="#{personneController.courrant.qualificationList}" var="diplomes">
+        <p:column headerText="Intitule du diplome">
+            <p:outputLabel value="#{diplomes.diplome.intitule}" />
+        </p:column>
+        
+        <p:column headerText="Date d'obtention">
+            <p:outputLabel value="#{diplomes.dateObtention}" />
+        </p:column>
+        
+        <p:column headerText="Partie delivrante">
+            <p:outputLabel value="#{diplomes.partieDelivrante}" />
+        </p:column>
+        
+        <p:column headerText="Mension">
+            <p:outputLabel value="#{diplomes.mension}" />
+        </p:column>
+        
+    </p:dataTable>
+    </p:panelGrid>
+    
+    <p:panelGrid columns="2">
+        <p:dataTable value="#{personneController.courrant.affectationList}" var="affectation">
+        <p:column headerText="Service d'affectation">
+            <p:outputLabel value="#{affectation.service.intitule}" />
+        </p:column>
+        
+        <p:column headerText="Date d'affectation">
+            <p:outputLabel value="#{affectation.dateAffectation}" />
+        </p:column>
+        
+        <p:column headerText="Poste">
+            <p:outputLabel value="#{affectation.poste}" />
+        </p:column>
+        
+    </p:dataTable>
+    </p:panelGrid>
+    <p:panelGrid columns="2">
+        <p:dataTable value="#{personneController.courrant.situationList}" var="situation">
+        <p:column headerText="Date d'effet">
+            <p:outputLabel value="#{situation.dateEffet}" />
+        </p:column>
+        
+        <p:column headerText="Cadre">
+            <p:outputLabel value="#{situation.cadre.intitule}" />
+        </p:column>
+        
+        <p:column headerText="Echelon">
+            <p:outputLabel value="#{situation.echelon}" />
+        </p:column>
+        
+        <p:column headerText="Numero indicatif">
+            <p:outputLabel value="#{situation.numeroIndicatif}" />
+        </p:column>
+            
+        <p:column headerText="Remarques">
+            <p:outputLabel value="#{situation.remarques}" />
+        </p:column>
+    </p:dataTable>
+    </p:panelGrid>
+</h:body>
+</html>

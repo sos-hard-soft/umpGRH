@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+</h:head>	
+<h:body>
+    <h:form>
+        <p:panelGrid columns="3">
+            <p:outputLabel value="Date d'affectation"/>
+            <p:calendar id="dateAffectation" value="#{personneController.newAffectation.dateAffectation}"
+                                mode="popup" pattern="dd/MM/yyyy"
+                                showButtonPanel="true" navigator="true"
+                                required="true" requiredMessage="Veuillez selectionnez une Date d'affectation" />
+                    <p:message for="dateAffectation"/>
+         <p:outputLabel value="Date de detachement"/>
+         <p:calendar id="dateDetachement" value="#{personneController.newAffectation.dateDetachement}"
+                                mode="popup" pattern="dd/MM/yyyy"
+                                showButtonPanel="true" navigator="true"
+                                required="false" requiredMessage="Veuillez selectionnez une Date d'affectation" />
+                    <p:message for="dateDetachement"/>
+                    <p:outputLabel value="Service :"/>
+                    <p:selectOneMenu id="service" value="#{personneController.newAffectation.service}">
+                        <f:selectItems value="#{serviceController.all}"/>                        
+                    </p:selectOneMenu>
+                    <p:message for="service"/>
+
+                    <p:outputLabel value="Poste :"/>
+                    <p:inputText id="poste" value="#{personneController.newAffectation.poste}"
+                                     required="true" requiredMessage="Veuillez saisir le poste du fonctionaire" />
+                       
+                    <p:message for="poste"/>
+
+
+                    <p:outputLabel value="Remarques :"/>
+                    <p:inputTextarea id="remarques" value="#{personneController.newAffectation.remarques}"
+                                required="false" requiredMessage="Veuillez selectionnez une Date d'obtention" />
+                    <p:message for="remarques"/>
+                    <h:commandButton value="Ajouter l'affectation" action="#{personneController.doAddAffectation}" />
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>

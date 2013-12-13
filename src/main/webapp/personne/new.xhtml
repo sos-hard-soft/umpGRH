@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>	
+<h:body>
+       
+    <h:form>
+        <p:panelGrid columns="3">
+            <p:outputLabel value="CIN :" />
+            <p:inputText id="cin" value="#{personneController.nouveau.cin}" />
+            <p:message for="cin" />
+            
+            <p:outputLabel value="Nom :" />
+            <p:inputText id="nom" value="#{personneController.nouveau.nom}" />
+            <p:message for="nom" />
+            
+            <p:outputLabel value="Prenom :" />
+            <p:inputText id="prenom" value="#{personneController.nouveau.prenom1}" />
+            <p:message for="prenom" />
+            
+            <p:outputLabel value="Prenom 2:" />
+            <p:inputText id="prenom2" value="#{personneController.nouveau.prenom2}" />
+            <p:message for="prenom2" />
+            
+            <p:outputLabel value="Nom arabe :" />
+            <p:inputText id="nomAr" value="#{personneController.nouveau.nomAr}" />
+            <p:message for="nomAr" />
+            
+            <p:outputLabel value="Prenom arabe :" />
+            <p:inputText id="prenomAr" value="#{personneController.nouveau.prenomAr}" />
+            <p:message for="prenomAr" />
+            
+            <p:outputLabel value="Date de Recrutement :" />
+            <p:calendar id="dateRecrutement" value="#{personneController.nouveau.dateRecrutement}" />
+            <p:message for="dateRecrutement" />
+            
+            <p:outputLabel value="Date de naissance :" />
+            <p:calendar id="dateNaissance" value="#{personneController.nouveau.dateNaissance}" />
+            <p:message for="dateNaissance" />
+            
+            <p:outputLabel value="SOM :" />
+            <p:inputText id="som" value="#{personneController.nouveau.som}" />
+            <p:message for="som" />
+            
+            <p:outputLabel value="Lieu de naissance :" />
+            <p:inputText id="lieuNaissance" value="#{personneController.nouveau.lieuNaissance}" />
+            <p:message for="lieuNaissance" />
+            
+            <p:outputLabel value="Adresse :" />
+            <p:inputTextarea id="adresse" value="#{personneController.nouveau.adresse}" />
+            <p:message for="adresse" />
+            
+            
+        </p:panelGrid>   
+        <h:commandButton value="Creer l'entree" action="#{personneController.doCreate}" />
+    </h:form>
+    <h:form enctype="multipart/form-data">
+        <p:outputLabel value="Photo :" />
+            <p:fileUpload fileUploadListener="#{personneController.handleFileUpload}" />
+            <p:growl id="messages" showDetail="true"/>
+    </h:form> 
+</h:body>
+</html>

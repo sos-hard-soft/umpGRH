@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+</h:head>	
+<h:body>
+    <h:form>
+        <p:panelGrid columns="3">
+            <p:outputLabel value="Date d'obtention du diplome"/>
+                    <p:calendar id="dateObtention" value="#{personneController.newQualification.dateObtention}"
+                                mode="popup" pattern="dd/MM/yyyy"
+                                showButtonPanel="true" navigator="true"
+                                required="true" requiredMessage="Veuillez selectionnez une Date d'obtention" />
+                    <p:message for="dateObtention"/>
+
+                    <p:outputLabel value="Diplome :"/>
+                    <p:selectOneMenu id="diplome" value="#{personneController.newQualification.diplome}">
+                        <f:selectItems value="#{diplomeController.all}"/>                        
+                    </p:selectOneMenu>
+                    <p:message for="diplome"/>
+
+                    <p:outputLabel value="Mension :"/>
+                    <p:selectOneMenu id="mension" value="#{personneController.newQualification.mension}"
+                                     required="true" requiredMessage="Veuillez saisir la mention du diplome">
+                        <f:selectItem itemLabel="Mention" itemValue="" />
+                        <f:selectItem itemLabel="Passable" itemValue="Passable" />
+                        <f:selectItem itemLabel="Assez bien" itemValue="Assez bien" />
+                        <f:selectItem itemLabel="Bien" itemValue="Bien" />
+                        <f:selectItem itemLabel="Tres bien" itemValue="Tres bien" />
+                        <f:selectItem itemLabel="Excellent" itemValue="Excellent" />
+                    </p:selectOneMenu>
+                    <p:message for="mension"/>
+
+
+                    <p:outputLabel value="Etablissement delivrant le diplome :"/>
+                    <p:inputText id="partieDelivrante" value="#{personneController.newQualification.partieDelivrante}"
+                                 required="true" requiredMessage="Veuillez saisir l'etablissement d'etude"/>
+                    <p:message for="partieDelivrante"/>
+                    <p:outputLabel value="Date de premiere inscription"/>
+                    <p:inputTextarea id="remarques" value="#{personneController.newQualification.remarques}"
+                                required="false" requiredMessage="Veuillez selectionnez une Date d'obtention" />
+                    <p:message for="remarques"/>
+                    <h:commandButton value="Ajouter la qualification" action="#{personneController.doAddQualification}" />
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>

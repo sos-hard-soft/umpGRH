@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>	
+<h:body>
+    <h:form>
+        <p:commandLink value="Nouveau" action="#{diplomeController.showCreate}" />
+        <p:spacer/>
+        <p:dataTable value="#{diplomeController.all}" var="diplome">
+            <p:column headerText="Intitule">
+                <p:outputLabel value="#{diplome.intitule}" />
+        </p:column>
+             <p:column headerText="Type">
+                 <p:outputLabel value="#{diplome.type}" />
+        </p:column>
+            <p:column headerText="Description">
+                <p:outputLabel value="#{diplome.description}" />
+        </p:column>
+        
+        </p:dataTable>
+    </h:form>  
+</h:body>
+</html>

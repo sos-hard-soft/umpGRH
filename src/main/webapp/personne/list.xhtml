@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>	
+<h:body>
+    <h:form>
+        <p:commandLink value="Ajouter Un nouvel Enregistrement" action="#{personneController.showCreate}" />
+        <p:dataTable value="#{personneController.all}" var="personne">
+        <p:column headerText="Nom">
+            <p:outputLabel value="#{personne.nom}" />
+        </p:column>
+        
+        <p:column headerText="Prenom">
+            <p:outputLabel value="#{personne.prenom1}" />
+        </p:column>
+        
+        <p:column headerText="Nom">
+            <p:outputLabel value="#{personne.dateNaissance}" />
+        </p:column>
+        
+        <p:column headerText="Cin">
+            <p:commandLink action="#{personneController.showDetail(personne)}" value="#{personne.cin}" />
+        </p:column>
+        
+        <p:column headerText="SOM">
+            <p:outputLabel value="#{personne.som}" />
+        </p:column>
+        
+    </p:dataTable>
+    </h:form>
+</h:body>
+</html>

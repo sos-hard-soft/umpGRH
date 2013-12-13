@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+</h:head>	
+<h:body>
+    <h:form>
+    <p:panelGrid columns="3">
+        <p:outputLabel value="Intitule :" />
+        <p:inputText id="intitule" value="#{cadreController.nouveau.intitule}" />
+            <p:message for="intitule" />
+            
+        <p:outputLabel value="Echelle corespondante :" />
+        <p:inputText id="echelle" value="#{cadreController.nouveau.echelle}" />
+            <p:message for="echelle" />
+            
+        <p:outputLabel value="Description :" />
+        <p:inputTextarea id="description" value="#{cadreController.nouveau.description}" />
+            <p:message for="description" />
+            <h:commandButton value="Enregistrer" action="#{cadreController.doCreate}" />
+    </p:panelGrid>
+        </h:form>
+</h:body>
+</html>

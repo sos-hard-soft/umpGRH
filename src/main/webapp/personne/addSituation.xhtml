@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+      xmlns:h="http://java.sun.com/jsf/html"	
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+    </h:head>	
+    <h:body>
+        <h:form>
+            <p:panelGrid columns="3">
+                <p:outputLabel value="Date d'effet de la situation"/>
+                <p:calendar id="dateEffet" value="#{personneController.newSituation.dateEffet}"
+                            mode="popup" pattern="dd/MM/yyyy"
+                            showButtonPanel="true" navigator="true"
+                            required="true" requiredMessage="Veuillez selectionnez une Date d'obtention" />
+                <p:message for="dateEffet"/>
+
+                <p:outputLabel value="Cadre :"/>
+                <p:selectOneMenu id="cadre" value="#{personneController.newSituation.cadre}">
+                    <f:selectItems value="#{cadreController.all}"/>                        
+                </p:selectOneMenu>
+                <p:message for="cadre"/>
+
+                <p:outputLabel value="Echelon :"/>
+                <p:inputText id="echelon" value="#{personneController.newSituation.echelon}"
+                             required="true" requiredMessage="Veuillez saisir l'echelon"/>
+                <p:message for="echelon"/>
+
+                <p:outputLabel value="Numero indicatif :"/>
+                <p:inputText id="numIndicatif" value="#{personneController.newSituation.numeroIndicatif}"
+                             required="false" requiredMessage="Veuillez saisir le numero indicatif"/>
+                <p:message for="numIndicatif"/>
+
+
+                <p:outputLabel value="Remarques :"/>
+                <p:inputTextarea id="remarques" value="#{personneController.newSituation.remarques}"
+                             required="false" requiredMessage="Veuillez saisir l'etablissement d'etude"/>
+                <p:message for="remarques"/>
+
+
+                <h:commandButton value="Ajouter la qualification" action="#{personneController.doAddSituation}" />
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
