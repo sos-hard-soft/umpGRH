@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3c.org/1999/xhtml"	
 xmlns:h="http://java.sun.com/jsf/html"	
-xmlns:p="http://primefaces.org/ui">
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
 </h:head>	
 <h:body>
-    <h:form>
+    <ui:composition template="../resources/commonLayout.xhtml">
+        <ui:define name="content">
         <p:commandLink value="Ajouter Un nouvel Enregistrement" action="#{personneController.showCreate}" />
         <p:dataTable value="#{personneController.all}" var="personne">
         <p:column headerText="Nom">
@@ -29,6 +31,7 @@ xmlns:p="http://primefaces.org/ui">
         </p:column>
         
     </p:dataTable>
-    </h:form>
+        </ui:define>
+    </ui:composition>
 </h:body>
 </html>

@@ -14,34 +14,68 @@
         </h:head>
 
         <h:body>
-
-            
-    <h2>Login</h2>
-    <h:form id="login">
-        <h:panelGrid columns="3">
-            <h:outputLabel for="username" value="Username:" />
+             <ui:composition template="resources/commonLayout.xhtml">
+                 <ui:define name="content">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-7">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-lock"></span> Login</div>
+                <div class="panel-body">
+                    <h:form id="login" styleClass="form-horizontal">
+                    
+                    <div class="form-group">
+                        <h:outputLabel for="username" value="Username:" styleClass="col-sm-3 control-label"/>
+                        <div class="col-sm-9">
+                            
             <h:inputText id="username" required="true" />
             <h:message for="username" />
-
-            <h:outputLabel for="password" value="Password" />
-            <h:inputSecret id="password" required="true" />
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h:outputLabel for="password" value="Password" styleClass="col-sm-3 control-label" />
+            
+                        <div class="col-sm-9">
+                           <h:inputSecret id="password" required="true" />
             <h:message for="password" />
-
-            <h:outputLabel for="rememberMe" value="Remember Me" />
+                        
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <div class="checkbox">
+                                
+                                    <h:outputLabel for="rememberMe" value="Remember Me" />
             <h:selectBooleanCheckbox id="rememberMe" />
-            <h:panelGroup />
-
-            <h:panelGroup />
-            <h:commandButton value="Login" />
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group last">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <h:commandButton value="Login" />
+            
+                        </div>
+                    </div>
+                        <h:panelGrid columns="3">
             <h:panelGroup styleClass="error" rendered="#{not facesContext.validationFailed}">
                 #{shiroLoginFailure}
             </h:panelGroup>
+            
         </h:panelGrid>
-    </h:form>
-
-
-
-
+                    </h:form>
+                </div>
+                <div class="panel-footer">
+                    Not Registred? <a href="http://www.jquery2dotnet.com">Register here</a></div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+   </ui:define>
+             </ui:composition>
         </h:body>
 
     </f:view>
