@@ -8,6 +8,15 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:body>
     <ui:composition template="../resources/commonLayout.xhtml">
         <ui:define name="content">
+            <div id="page-wrapper">
+                <div class="row">
+                    <div class="col-lg-4">
+                    <div class="well well-sm">
+                        <h3>Liste du personnel</h3>
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
         <p:commandLink value="Ajouter Un nouvel Enregistrement" action="#{personneController.showCreate}" />
         <p:dataTable value="#{personneController.all}" var="personne">
         <p:column headerText="Nom">
@@ -31,6 +40,8 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         </p:column>
         
     </p:dataTable>
+        </div>
+        </div>
         </ui:define>
     </ui:composition>
 </h:body>
