@@ -6,10 +6,14 @@
 package com.sos.ump.grh.controllers;
 
 import com.sos.ump.grh.entities.Affectation;
+import com.sos.ump.grh.entities.Autorisation;
+import com.sos.ump.grh.entities.Mission;
 import com.sos.ump.grh.entities.Personne;
 import com.sos.ump.grh.entities.Qualification;
 import com.sos.ump.grh.entities.Situation;
 import com.sos.ump.grh.services.AffectationFacade;
+import com.sos.ump.grh.services.AutorisationFacade;
+import com.sos.ump.grh.services.MissionFacade;
 import com.sos.ump.grh.services.PersonneFacade;
 import com.sos.ump.grh.services.QualificationFacade;
 import com.sos.ump.grh.services.SituationFacade;
@@ -61,6 +65,14 @@ public class PersonneController implements Serializable {
     private SituationFacade situationService;
     private Situation newSituation;
     
+    @Inject
+    private MissionFacade missionService;
+    private Mission newMission;
+    
+    @Inject
+    private AutorisationFacade autoisationService;
+    private Autorisation newAutorisation;
+    
     /**
      * Creates a new instance of PersonneController
      */
@@ -86,14 +98,19 @@ public class PersonneController implements Serializable {
         return "/personne/addQualification?faces-redirect=true";
     }
 
-public String showAddAffectation() {
+    public String showAddAffectation() {
         newAffectation = new Affectation();
         return "/personne/addAffectation?faces-redirect=true";
     }
 
-public String showAddSituation() {
+    public String showAddSituation() {
         newSituation = new Situation();
         return "/personne/addSituation?faces-redirect=true";
+    }
+    
+    public String showAddMission() {
+        newMission = new Mission();
+        return "/personne/addMission?faces-redirect=true";
     }
 
     public void showAttestation() throws IOException, FacesException {
@@ -151,7 +168,7 @@ public String showAddSituation() {
         } else {
             logger.log(Level.SEVERE, "Erreur de donnee the current entity is null !!");
         }
-        return "view?faces-redirect=true";
+        return "/personne/view?faces-redirect=true";
     }
     
     
@@ -170,7 +187,7 @@ public String showAddSituation() {
         } else {
             logger.log(Level.SEVERE, "Erreur de donnee the current entity is null !!");
         }
-        return "view?faces-redirect=true";
+        return "/personne/view?faces-redirect=true";
     }
     
     public String doAddSituation(){
@@ -188,8 +205,29 @@ public String showAddSituation() {
         } else {
             logger.log(Level.SEVERE, "Erreur de donnee the current entity is null !!");
         }
-        return "view?faces-redirect=true";
+        return "/personne/view?faces-redirect=true";
     }
+    
+    public String doRequestMission(){
+        logger.log(Level.INFO, "Debut de la procedure de demande d ordre de mission !!");
+        if (courrant != null) {
+            newMission.setPersonne(courrant);
+
+            try {
+                newMission.setOctroye(Boolean.FALSE);
+                newMission.setEtatTraitement(Boolean.FALSE);
+                
+                missionService.create(newMission);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            logger.log(Level.SEVERE, "Erreur de donnee the current entity is null !!");
+        }
+        
+        return "/personne/view?faces-redirect=true";
+    }
+    
     
     public Personne getCourrant() {
         return courrant;
@@ -229,6 +267,22 @@ public String showAddSituation() {
 
     public void setNewSituation(Situation newSituation) {
         this.newSituation = newSituation;
+    }
+
+    public Mission getNewMission() {
+        return newMission;
+    }
+
+    public void setNewMission(Mission newMission) {
+        this.newMission = newMission;
+    }
+
+    public Autorisation getNewAutorisation() {
+        return newAutorisation;
+    }
+
+    public void setNewAutorisation(Autorisation newAutorisation) {
+        this.newAutorisation = newAutorisation;
     }
     
         

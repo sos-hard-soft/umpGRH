@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -43,6 +44,9 @@ public class Diplome implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "optimistic_lock")
+    @Version
+    private Integer version;
     @Size(max = 255)
     @Column(name = "description")
     private String description;
@@ -52,8 +56,6 @@ public class Diplome implements Serializable {
     @Size(max = 255)
     @Column(name = "type")
     private String type;
-    @Column(name = "version")
-    private Integer version;
     @OneToMany(mappedBy = "diplome")
     private List<Qualification> qualificationList;
 

@@ -22,6 +22,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -58,6 +59,9 @@ public class Personne implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "optimistic_lock")
+    @Version
+    private Integer version;
     @Size(max = 255)
     @Column(name = "adresse")
     private String adresse;
@@ -107,7 +111,11 @@ public class Personne implements Serializable {
     private List<Affectation> affectationList;
     @OneToMany(mappedBy = "person")
     private List<Situation> situationList;
-
+    @OneToMany(mappedBy = "person")
+    private List<Mission> missionList;
+    @OneToMany(mappedBy = "person")
+    private List<Autorisation> autorisationList;
+    
     public Personne() {
     }
 
@@ -285,6 +293,23 @@ public class Personne implements Serializable {
         this.situationList = situationList;
     }
 
+    public List<Mission> getMissionList() {
+        return missionList;
+    }
+
+    public void setMissionList(List<Mission> missionList) {
+        this.missionList = missionList;
+    }
+
+    public List<Autorisation> getAutorisationList() {
+        return autorisationList;
+    }
+
+    public void setAutorisationList(List<Autorisation> autorisationList) {
+        this.autorisationList = autorisationList;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 0;

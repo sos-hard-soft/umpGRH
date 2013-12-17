@@ -21,6 +21,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -46,6 +47,9 @@ public class Qualification implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "optimistic_lock")
+    @Version
+    private Integer version;
     @Column(name = "date_obtention")
     @Temporal(TemporalType.DATE)
     private Date dateObtention;
@@ -58,8 +62,6 @@ public class Qualification implements Serializable {
     @Size(max = 255)
     @Column(name = "remarques")
     private String remarques;
-    @Column(name = "version")
-    private Integer version;
     @JoinColumn(name = "person", referencedColumnName = "id")
     @ManyToOne
     private Personne person;

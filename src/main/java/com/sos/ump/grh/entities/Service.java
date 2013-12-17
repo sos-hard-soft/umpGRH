@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Version;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -42,14 +43,15 @@ public class Service implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "optimistic_lock")
+    @Version
+    private Integer version;
     @Size(max = 255)
     @Column(name = "description")
     private String description;
     @Size(max = 255)
     @Column(name = "intitule")
     private String intitule;
-    @Column(name = "version")
-    private Integer version;
     @OneToMany(mappedBy = "service")
     private List<Affectation> affectationList;
 

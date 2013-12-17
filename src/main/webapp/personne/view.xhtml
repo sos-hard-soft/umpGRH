@@ -6,11 +6,12 @@ xmlns:p="http://primefaces.org/ui">
 </h:head>	
 <h:body>
         <h:form>
-        <p:panelGrid columns="4">
+        <p:panelGrid columns="5">
             <p:commandLink target="new" value="Attestation" action="#{personneController.showAttestation}"  />
             <p:commandLink value="Nouvelle Qualification" action="#{personneController.showAddQualification}"  />
             <p:commandLink value="Nouvelle Affectation" action="#{personneController.showAddAffectation}"  />
             <p:commandLink value="Nouvelle Situation" action="#{personneController.showAddSituation}"  />
+            <p:commandLink value="Demander Ordre de Mission" action="#{personneController.showAddMission}"  />
         </p:panelGrid>
         <p:panelGrid columns="2">
             <p:outputLabel value="CIN :" />

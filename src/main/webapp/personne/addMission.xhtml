@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"	
+xmlns:h="http://java.sun.com/jsf/html"	
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+</h:head>	
+<h:body>
+    <ui:composition template="../resources/commonLayout.xhtml">
+        <ui:define name="content">
+            <div class="col-lg-8 col-lg-offset-1">
+                <div class="row">
+                    <h2>Liste du personnel</h2>
+                </div>
+                <div class="row">
+                    <p:panelGrid columns="3">
+                        <p:outputLabel value="Destination" />
+                        <p:inputTextarea id="destination" value="#{personneController.newMission.destination}" required="true" />
+                        <p:message for="destination" /> 
+                        
+                        <p:outputLabel value="Ville" />
+                        <p:inputText id="ville" value="#{personneController.newMission.ville}" required="true" />
+                        <p:message for="ville" /> 
+                        
+                        <p:outputLabel value="Pays" />
+                        <p:inputText id="pays" value="#{personneController.newMission.pays}" required="true" />
+                        <p:message for="pays" /> 
+                        
+                        <p:outputLabel value="Date de Début :" />
+                        <p:calendar id="dateDebut" value="#{personneController.newMission.dateDebut}" />
+            <p:message for="dateDebut" />
+            
+            <p:outputLabel value="Date de Fin :" />
+            <p:calendar id="dateFin" value="#{personneController.newMission.dateFin}" />
+            <p:message for="dateFin" />
+            
+            <p:outputLabel value="Détails" />
+            <p:inputTextarea id="details" value="#{personneController.newMission.detail}" required="true" />
+                        <p:message for="details" /> 
+                        <h:commandButton value="Enregistrer la demande" action="#{personneController.doRequestMission}" />
+                    </p:panelGrid>
+        </div>
+ </div>
+        </ui:define>
+    </ui:composition>
+</h:body>
+</html>
