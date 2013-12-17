@@ -1,17 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      >
+      xmlns:p="http://primefaces.org/ui">
     <body>
 	    <ui:composition>
-                <header>
-		<h1>This is default header</h1>
+                <header id="myHeader">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <h:graphicImage name="images/logo.png" />
+                        </div>
+                        <div class="col-lg-7 col-lg-offset-1">
+                            <h1 id="appName">Gestion de ressources humaines</h1>
+                        </div>
+                        
+                        <div class="col-lg-2"  style="text-align: right;">
+                            <h:graphicImage name="images/umpLogo.jpg" />
+                        </div>
+                    </div>
  </header>
 	    </ui:composition>
     </body>
