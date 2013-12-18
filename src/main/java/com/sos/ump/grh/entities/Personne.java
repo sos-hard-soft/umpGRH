@@ -23,6 +23,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
@@ -101,10 +102,11 @@ public class Personne implements Serializable {
     @Size(max = 255)
     @Column(name = "prenom_ar")
     private String prenomAr;
+    @NotNull
     @Column(name = "som")
-    private Integer som;
+    private Long som;
     @Column(name = "telephonne")
-    private Integer telephonne;
+    private String telephonne;
     @OneToMany(mappedBy = "person")
     private List<Qualification> qualificationList;
     @OneToMany(mappedBy = "person")
@@ -119,7 +121,7 @@ public class Personne implements Serializable {
     public Personne() {
     }
 
-    public Personne(String nom, String prenom1, Integer som) {
+    public Personne(String nom, String prenom1, Long som) {
         this.nom = nom;
         this.prenom1 = prenom1;
         this.som = som;
@@ -250,22 +252,33 @@ public class Personne implements Serializable {
         this.prenomAr = prenomAr;
     }
 
-    public Integer getSom() {
+    public Long getSom() {
         return som;
     }
 
-    public void setSom(Integer som) {
+    public void setSom(Long som) {
         this.som = som;
     }
 
-    public Integer getTelephonne() {
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public String getTelephonne() {
         return telephonne;
     }
 
-    public void setTelephonne(Integer telephonne) {
+    public void setTelephonne(String telephonne) {
         this.telephonne = telephonne;
     }
 
+    
+
+   
     @XmlTransient
     public List<Qualification> getQualificationList() {
         return qualificationList;

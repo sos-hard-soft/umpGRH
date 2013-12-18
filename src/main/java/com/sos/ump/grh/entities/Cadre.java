@@ -35,8 +35,7 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Cadre.findById", query = "SELECT c FROM Cadre c WHERE c.id = :id"),
     @NamedQuery(name = "Cadre.findByDescription", query = "SELECT c FROM Cadre c WHERE c.description = :description"),
     @NamedQuery(name = "Cadre.findByEchelle", query = "SELECT c FROM Cadre c WHERE c.echelle = :echelle"),
-    @NamedQuery(name = "Cadre.findByIntitule", query = "SELECT c FROM Cadre c WHERE c.intitule = :intitule"),
-    @NamedQuery(name = "Cadre.findByVersion", query = "SELECT c FROM Cadre c WHERE c.version = :version")})
+    @NamedQuery(name = "Cadre.findByIntitule", query = "SELECT c FROM Cadre c WHERE c.intitule = :intitule")})
 public class Cadre implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

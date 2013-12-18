@@ -45,7 +45,7 @@ public class ReportController  extends
     String prenom1 = request.getParameter("prenom1");
     String numSom = request.getParameter("som");
     String diplome = request.getParameter("diplome");
-    Integer som = Integer.parseInt(numSom);
+    Long som = Long.parseLong(numSom);
     Personne personne = new Personne(nom, prenom1, som);
     context.put("personne", personne);
     context.put("diplome", diplome);
