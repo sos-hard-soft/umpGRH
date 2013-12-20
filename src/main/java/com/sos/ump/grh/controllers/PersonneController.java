@@ -7,12 +7,14 @@ package com.sos.ump.grh.controllers;
 
 import com.sos.ump.grh.entities.Affectation;
 import com.sos.ump.grh.entities.Autorisation;
+import com.sos.ump.grh.entities.Compte;
 import com.sos.ump.grh.entities.Mission;
 import com.sos.ump.grh.entities.Personne;
 import com.sos.ump.grh.entities.Qualification;
 import com.sos.ump.grh.entities.Situation;
 import com.sos.ump.grh.services.AffectationFacade;
 import com.sos.ump.grh.services.AutorisationFacade;
+import com.sos.ump.grh.services.CompteFacade;
 import com.sos.ump.grh.services.MissionFacade;
 import com.sos.ump.grh.services.PersonneFacade;
 import com.sos.ump.grh.services.QualificationFacade;
@@ -25,13 +27,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.FacesException;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.RandomStringUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.UploadedFile;
@@ -52,6 +57,9 @@ public class PersonneController implements Serializable {
     private Personne nouveau;
     private List<Personne> personnes;
     
+    @Inject
+    private CompteFacade compteService;
+    private Compte compteUtilisateur = new Compte();
     
     @Inject
     private QualificationFacade qualificationService;
@@ -79,6 +87,15 @@ public class PersonneController implements Serializable {
     public PersonneController() {
     }
 
+    private void addMessage(String key, FacesMessage.Severity severity, String message, String detail) {
+        FacesContext context = FacesContext.getCurrentInstance();
+        Flash flash = context.getExternalContext().getFlash();
+        flash.setKeepMessages(true);
+        FacesMessage msg = new FacesMessage(severity, message, detail);
+        FacesContext.getCurrentInstance().addMessage(key, msg);
+    }
+    
+    
     public String showList() {
         return "/personne/list?faces-redirect=true";
     }
@@ -132,6 +149,19 @@ public class PersonneController implements Serializable {
     }
 
     public String doCreate() {
+        //Create Account
+        compteUtilisateur.setSom(nouveau.getSom());
+        String login = nouveau.getPrenom1().substring(0) + "." + nouveau.getNom();
+        System.out.println("le login est : " + login);
+        String password = RandomStringUtils.random(8, true, true);
+        System.out.println("password  : " + password);
+        
+        compteUtilisateur.setLogin(login);
+        compteUtilisateur.setPassword(password);
+        
+        compteService.create(compteUtilisateur);
+        
+                
         personneService.create(nouveau);
         return showList();
     }
@@ -156,7 +186,7 @@ public class PersonneController implements Serializable {
     public String doAddQualification(){
         logger.log(Level.INFO, "Debut de la procedure d'ajout de diplome !!");
         if (courrant != null) {
-            newQualification.setPerson(courrant);
+            newQualification.setPersonne(courrant);
 
             try {
                 qualificationService.create(newQualification);
@@ -175,7 +205,7 @@ public class PersonneController implements Serializable {
     public String doAddAffectation(){
         logger.log(Level.INFO, "Debut de la procedure d'ajout d'affectation !!");
         if (courrant != null) {
-            newAffectation.setPerson(courrant);
+            newAffectation.setPersonne(courrant);
 
             try {
                 affectationService.create(newAffectation);
@@ -193,7 +223,7 @@ public class PersonneController implements Serializable {
     public String doAddSituation(){
         logger.log(Level.INFO, "Debut de la procedure d'ajout de situation !!");
         if (courrant != null) {
-            newSituation.setPerson(courrant);
+            newSituation.setPersonne(courrant);
 
             try {
                 situationService.create(newSituation);
@@ -245,6 +275,15 @@ public class PersonneController implements Serializable {
         this.nouveau = nouveau;
     }
 
+    public Compte getCompteUtilisateur() {
+        return compteUtilisateur;
+    }
+
+    public void setCompteUtilisateur(Compte compteUtilisateur) {
+        this.compteUtilisateur = compteUtilisateur;
+    }
+
+    
     public Qualification getNewQualification() {
         return newQualification;
     }

@@ -13,6 +13,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
                     <h2>Liste du personnel</h2>
                 </div>
                 <div class="row">
+                    <h:form>
         <p:commandLink value="Ajouter Un nouvel Enregistrement" action="#{personneController.showCreate}" />
         <p:dataTable value="#{personneController.all}" var="personne">
         <p:column headerText="Nom">
@@ -36,6 +37,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets">
         </p:column>
         
     </p:dataTable>
+        </h:form>
         </div>
  </div>
         </ui:define>

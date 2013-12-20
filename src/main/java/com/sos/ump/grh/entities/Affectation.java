@@ -65,9 +65,9 @@ public class Affectation implements Serializable {
     @JoinColumn(name = "service", referencedColumnName = "id")
     @ManyToOne
     private Service service;
-    @JoinColumn(name = "person", referencedColumnName = "id")
+    @JoinColumn(name = "personne", referencedColumnName = "id")
     @ManyToOne
-    private Personne person;
+    private Personne personne;
 
     public Affectation() {
     }
@@ -132,12 +132,12 @@ public class Affectation implements Serializable {
         this.service = service;
     }
 
-    public Personne getPerson() {
-        return person;
+    public Personne getPersonne() {
+        return personne;
     }
 
-    public void setPerson(Personne person) {
-        this.person = person;
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
     }
 
     @Override

@@ -107,15 +107,15 @@ public class Personne implements Serializable {
     private Long som;
     @Column(name = "telephonne")
     private String telephonne;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personne")
     private List<Qualification> qualificationList;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personne")
     private List<Affectation> affectationList;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personne")
     private List<Situation> situationList;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personne")
     private List<Mission> missionList;
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "personne")
     private List<Autorisation> autorisationList;
     
     public Personne() {

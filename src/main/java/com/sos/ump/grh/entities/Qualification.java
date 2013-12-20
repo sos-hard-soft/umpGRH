@@ -62,9 +62,9 @@ public class Qualification implements Serializable {
     @Size(max = 255)
     @Column(name = "remarques")
     private String remarques;
-    @JoinColumn(name = "person", referencedColumnName = "id")
+    @JoinColumn(name = "personne", referencedColumnName = "id")
     @ManyToOne
-    private Personne person;
+    private Personne personne;
     @JoinColumn(name = "diplome", referencedColumnName = "id")
     @ManyToOne
     private Diplome diplome;
@@ -124,12 +124,12 @@ public class Qualification implements Serializable {
         this.version = version;
     }
 
-    public Personne getPerson() {
-        return person;
+    public Personne getPersonne() {
+        return personne;
     }
 
-    public void setPerson(Personne person) {
-        this.person = person;
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
     }
 
     public Diplome getDiplome() {

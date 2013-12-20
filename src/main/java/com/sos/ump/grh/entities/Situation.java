@@ -60,9 +60,9 @@ public class Situation implements Serializable {
     @Size(max = 255)
     @Column(name = "remarques")
     private String remarques;
-    @JoinColumn(name = "person", referencedColumnName = "id")
+    @JoinColumn(name = "personne", referencedColumnName = "id")
     @ManyToOne
-    private Personne person;
+    private Personne personne;
     @JoinColumn(name = "cadre", referencedColumnName = "id")
     @ManyToOne
     private Cadre cadre;
@@ -122,12 +122,12 @@ public class Situation implements Serializable {
         this.version = version;
     }
 
-    public Personne getPerson() {
-        return person;
+    public Personne getPersonne() {
+        return personne;
     }
 
-    public void setPerson(Personne person) {
-        this.person = person;
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
     }
 
     public Cadre getCadre() {
