@@ -68,6 +68,7 @@ public class PersonneController implements Serializable {
     public void handleFileUpload(FileUploadEvent event) throws IOException {
 
         UploadedFile file = event.getFile();
+        /******lkkpkk*****/
         System.out.println(file.getFileName());
 
         byte[] foto = IOUtils.toByteArray(file.getInputstream());
